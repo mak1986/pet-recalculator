@@ -64,8 +64,12 @@ class RecalculatorHelper {
         const selectedPetOptions = _.filter(sample.petOptions, {selected: true});
 
         sample.priceSummary = {
-            originalPrice: selectedSuggestedPetCombination.priceSummary.originalPrice + _.sumBy(selectedPetOptions, 'originalPrice'),
-            finalPrice: selectedSuggestedPetCombination.priceSummary.finalPrice + _.sumBy(selectedPetOptions, 'finalPrice')
+            originalPrice: selectedSuggestedPetCombination.priceSummary.originalPrice + _.sumBy(selectedPetOptions, (selectedPetOption)=>{
+                return selectedPetOption.priceSummary.originalPrice
+            }),
+            finalPrice: selectedSuggestedPetCombination.priceSummary.finalPrice + _.sumBy(selectedPetOptions, (selectedPetOption)=>{
+                return selectedPetOption.priceSummary.finalPrice
+            })
         };
     }
 
