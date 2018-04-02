@@ -2,7 +2,6 @@
  * Created by mak.punyachokchai on 4/1/2018 AD.
  */
 
-s
 const _ = require('lodash');
 
 let instance = null;
